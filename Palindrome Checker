@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class PalindromeChecker {
+
+    public static String reverseString(String str) {
+        StringBuilder reversed = new StringBuilder(str);
+        return reversed.reverse().toString();
+    }
+
+    public static boolean isPalindrome(String str) {
+        String original = str.toLowerCase().replaceAll("[^a-zA-Z0-9]", "");
+        String reversed = reverseString(original);
+        return original.equals(reversed);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Palindrome Checker - Developed by Prabhakar");
+        System.out.print("Enter a string to check if it is a palindrome: ");
+
+        String input = scanner.nextLine();
+
+        if (isPalindrome(input)) {
+            System.out.println("Yes, \"" + input + "\" is a palindrome!");
+        } else {
+            System.out.println("No, \"" + input + "\" is not a palindrome.");
+        }
+
+        scanner.close();
+    }
+}
